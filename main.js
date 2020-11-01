@@ -14,9 +14,30 @@ $(document).ready(function(){
             numbers.push(number);
         }
     }
+
+    // creo una stringa con i numeri dell'array
+    var numbersString = numbers.join(' - ');
+    console.log(numbersString);
+
+    // stampo in pagina i numeri da indovinare
+    $('#random-numbers').text(numbersString);
+
+    // creo e faccio partire un timer di 30 secondi
+    var timer = 30;
+    var clock = setInterval(function() {
+        // decremento il tempo
+        timer--;
+        // stampo in pagina i secondi rimanenti
+        $('#seconds-remaining').text(timer);
+        // se sono arrivato a 0 interrompo il timer
+        if(timer <= 0) {
+            clearInterval(clock);
+        }
+    }, 1000);
+
 });
 
 // creo la funzione per generare numeri random
 function getRndInteger(max, min) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-};
+}
