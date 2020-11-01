@@ -63,7 +63,20 @@ $(document).ready(function(){
             }
         }
         console.log("numeri indovinati: " + numbersGuessed);
+
+        // stampo in pagina i numeri inseriti dall'utente in una stringa
+        var userNumbersString = userNumbers.join(' - ');
+        $('#user-numbers').text(userNumbersString);
+
+        // stampo in pagina i numeri indovinati dall'utente in una stringa
+        var numbersGuessedString = numbersGuessed.join('-');
+
+        $('#numbers-guessed').text(numbersGuessedString);
+
+        // stampo il numero di numeri indovinati
+        $('#final-result').text(numbersGuessed.length);
     }, timer * 1100);
+
 });
 
 // creo la funzione per generare numeri random
